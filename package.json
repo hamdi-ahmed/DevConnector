@@ -1,0 +1,31 @@
+{
+  "name": "DevConnector",
+  "version": "1.0.0",
+  "description": "Social Network for Developers",
+  "main": "server.js",
+  "scripts": {
+    "start":"node server",
+    "server": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamdi-ahmed/DevConnector.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamdi-ahmed/DevConnector/issues"
+  },
+  "homepage": "https://github.com/hamdi-ahmed/DevConnector#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.6",
+    "dotenv": "^9.0.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.11.1",
+    "gravatar": "^1.8.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.7"
+  }
+}
