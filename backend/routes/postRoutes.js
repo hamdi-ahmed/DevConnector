@@ -1,4 +1,5 @@
 const express = require('express')
+const protect = require('../middleWares/authMiddleware')
 
 const router = express.Router()
 
