@@ -3,7 +3,6 @@ const express = require('express')
 const dotenv = require('dotenv')
 const dbConnection = require('./config/db')
 const userRoutes = require('./routes/userRoute')
-const authRoutes = require('./routes/authRoutes')
 const postRoutes = require('./routes/postRoutes')
 const profileRoutes = require('./routes/profileRoutes')
 const { notFound, errorHandler } = require('./middlewares/errorHandler')
@@ -20,9 +19,8 @@ dbConnection()
 
 //Routes
 app.use('/api/users', userRoutes)
-app.use('/api/auth', authRoutes)
 app.use('/api/posts', postRoutes)
-app.use('/api/profiles', profileRoutes)
+app.use('/api/profile', profileRoutes)
 
 app.get('/', (req, res) => {
     res.send('App is running Successfully !!')
