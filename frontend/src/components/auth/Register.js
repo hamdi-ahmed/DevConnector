@@ -1,6 +1,16 @@
 import React, { Fragment, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+
+
+import { setAlert } from '../../actions/alertActions'
+import Alert from '../layouts/Alert'
+
 const Register = () => {
+    const dispatch = useDispatch()
+    // const alert = useSelector(state => state.alert)
+    // const { alertStatus: { msg, alertType } } = alert
+    // console.log(msg);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -13,7 +23,7 @@ const Register = () => {
     const handleSubmit = e => {
         e.preventDefault()
         if (password !== password2) {
-            console.log('Password does not match ');
+            dispatch(setAlert("Password and confirm password doesn't match", 'danger'))
         } else {
             console.log(formData)
         }
@@ -21,6 +31,7 @@ const Register = () => {
 
     return (
         <Fragment>
+            <Alert />
             <h1 className="large text-primary">Sign Up</h1>
             <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
             <form
@@ -82,5 +93,6 @@ const Register = () => {
         </Fragment>
     )
 }
+
 
 export default Register
