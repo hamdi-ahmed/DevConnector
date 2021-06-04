@@ -1,6 +1,14 @@
-import React, { Fragment, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Fragment, useState, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { logIn } from '../../actions/userActions'
+
 const Login = () => {
+    const history = useHistory()
+    const dispatch = useDispatch()
+    const login = useSelector(state => state.login)
+    const { success } = login
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -9,8 +17,13 @@ const Login = () => {
     const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value })
     const handleSubmit = e => {
         e.preventDefault()
-        console.log('success');
+        dispatch(logIn({ email, password }))
     }
+    useEffect(() => {
+        if (success) {
+            history.push('/dashboard')
+        }
+    }, [history, success])
     return (
         <Fragment>
             <h1 className="large text-primary">Sign In</h1>

@@ -32,8 +32,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body
     const userExist = await User.findOne({ email })
     if (userExist) {
-        res.status(400)
-        res.json('User is already exist !!')
+        return res.status(400).json('User are Already exist')
     }
 
     //Get Avatar { size, rating, default image }

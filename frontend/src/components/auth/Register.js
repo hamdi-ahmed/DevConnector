@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 import { setAlert } from '../../actions/alertActions'
+import { register } from '../../actions/userActions'
 import Alert from '../layouts/Alert'
 
 const Register = () => {
@@ -25,7 +26,7 @@ const Register = () => {
         if (password !== password2) {
             dispatch(setAlert("Password and confirm password doesn't match", 'danger'))
         } else {
-            console.log(formData)
+            dispatch(register({ name, email, password }))
         }
     }
 
